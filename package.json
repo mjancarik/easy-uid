@@ -1,6 +1,6 @@
 {
     "name": "easy-uid",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Easy unique id generator for node and browser.",
     "main": "lib/easy-uid.js",
     "module": "es/easy-uid.js",
