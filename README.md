@@ -5,7 +5,7 @@
 ![GitHub package version](https://img.shields.io/github/package-json/v/mjancarik/easy-uid.svg)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-Easy uid is based on [https://gist.github.com/jed/982883]. It is tiny module without external dependencies. It is useful for generating uid where is no need horizontal scaling. For example: React Components, etc.
+Easy uid is based on [gist](https://gist.github.com/jed/982883). It is tiny module without external dependencies. It is useful for generating uid where is no need horizontal scaling. For example: React Components, etc.
 
 ## Installation
 
