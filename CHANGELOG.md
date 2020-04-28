@@ -1,3 +1,8 @@
+<a name="1.0.2"></a>
+## [1.0.2](https://github.com/mjancarik/easy-uid/compare/1.0.1...1.0.2) (2020-04-28)
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/mjancarik/easy-uid/compare/1.0.0...1.0.1) (2018-09-11)
 

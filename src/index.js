@@ -7,5 +7,5 @@ export default function easyUId(a, b) {
         ? (a ^ 15 ? 8 ^ (Math.random() * (a ^ 20 ? 16 : 4)) : 4).toString(16)
         : '-'
   );
-  return (new Date()).getTime().toString(36) + '-' + b;
+  return new Date().getTime().toString(36) + '-' + b;
 }
