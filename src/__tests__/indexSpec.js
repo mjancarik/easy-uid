@@ -9,10 +9,10 @@ describe('uid method', () => {
     expect(uid() !== uid()).toBeTruthy();
   });
 
-  it('should generate over milion uniq ids', () => {
+  it('should generate over milion unique ids', () => {
     let cache = {};
 
-    for (let i = 0; i < 500000; i++) {
+    for (let i = 0; i < 1500000; i++) {
       let id = uid();
 
       if (cache[id]) {
