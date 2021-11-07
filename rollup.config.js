@@ -9,17 +9,17 @@ const config = {
   plugins: [
     babel({
       exclude: 'node_modules/**',
-      externalHelpers: true
+      externalHelpers: true,
     }),
     nodeResolve({
-      jsnext: true
+      jsnext: true,
     }),
-    commonjs()
-  ]
+    commonjs(),
+  ],
 };
 
 if (env === 'es' || env === 'cjs') {
-  config.output = { format: env };
+  config.output = { format: env, exports: 'auto' };
 }
 
 if (env === 'umd') {
@@ -31,8 +31,8 @@ if (env === 'umd') {
         pure_getters: true,
         unsafe: true,
         unsafe_comps: true,
-        warnings: false
-      }
+        warnings: false,
+      },
     })
   );
 }
