@@ -1,6 +1,6 @@
-import uid from '../index';
+import uid from '../index.js';
 
-describe('uid method', () => {
+describe('Easy uid module', () => {
   it('should generate random token as string', () => {
     expect(typeof uid() === 'string').toBeTruthy();
   });
@@ -12,7 +12,7 @@ describe('uid method', () => {
   it('should generate over milion unique ids', () => {
     let cache = {};
 
-    for (let i = 0; i < 1500000; i++) {
+    for (let i = 0; i < 2_000_000; i++) {
       let id = uid();
 
       if (cache[id]) {

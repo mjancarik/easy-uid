@@ -1,16 +1,17 @@
 {
     "name": "easy-uid",
     "version": "1.0.2",
-    "description": "Easy unique id generator for node and browser.",
-    "main": "lib/easy-uid.js",
-    "module": "es/easy-uid.js",
+    "description": "A tiny only 70 bytes random URL-friendly uid generator",
+    "main": "cjs/index.js",
+    "module": "es/index.js",
     "scripts": {
         "preversion": "npm test && npm run lint && npm run build",
         "postversion": "npm run build && npm run changelog && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish",
         "lint": "node_modules/.bin/eslint -c ./.eslintrc.js --fix './**/*.{js,jsx}' --ignore-path ./.prettierignore",
         "test": "node_modules/.bin/jest --no-watchman",
-        "build:commonjs": "cross-env NODE_ENV=cjs rollup -c -o lib/easy-uid.js",
-        "build:es": "cross-env NODE_ENV=es rollup -c -o es/easy-uid.js",
+        "test:size": "node_modules/.bin/size-limit",
+        "build:commonjs": "cross-env NODE_ENV=cjs rollup -c",
+        "build:es": "cross-env NODE_ENV=es rollup -c",
         "build": "npm run build:commonjs && npm run build:es",
         "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
         "precommit": "npm run lint",
@@ -26,8 +27,7 @@
         "generator",
         "random",
         "tiny",
-        "easy",
-        "ES6"
+        "easy"
     ],
     "author": "Miroslav Jancarik",
     "license": "ISC",
@@ -39,10 +39,11 @@
     },
     "homepage": "https://github.com/mjancarik/easy-uid#readme",
     "devDependencies": {
-        "@babel/core": "^7.16.0",
-        "@commitlint/cli": "^14.1.0",
-        "@commitlint/config-conventional": "^14.1.0",
-        "babel-jest": "^27.3.1",
+        "@babel/core": "^7.16.5",
+        "@commitlint/cli": "^15.0.0",
+        "@commitlint/config-conventional": "^15.0.0",
+        "@size-limit/preset-small-lib": "^7.0.4",
+        "babel-jest": "^27.4.5",
         "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
         "babel-preset-env": "^1.7.0",
         "commitizen": "^4.2.4",
@@ -50,20 +51,21 @@
         "coveralls": "^3.1.1",
         "cross-env": "^7.0.3",
         "cz-conventional-changelog": "^3.3.0",
-        "eslint": "^8.2.0",
+        "eslint": "^8.5.0",
         "eslint-config-last": "^0.0.5",
         "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-jasmine": "^4.1.2",
-        "eslint-plugin-jest": "^25.2.3",
+        "eslint-plugin-jasmine": "^4.1.3",
+        "eslint-plugin-jest": "^25.3.0",
         "eslint-plugin-prettier": "^4.0.0",
-        "husky": "^0.14.3",
-        "jest": "^27.3.1",
-        "prettier": "^2.4.1",
-        "rollup": "^2.59.0",
+        "husky": "^7.0.4",
+        "jest": "^27.4.5",
+        "prettier": "^2.5.1",
+        "rollup": "^2.61.1",
         "rollup-plugin-babel": "^4.4.0",
         "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-node-resolve": "^5.2.0",
-        "rollup-plugin-uglify": "^6.0.4",
+        "rollup-plugin-terser": "^7.0.2",
+        "size-limit": "^7.0.4",
         "to-mock": "^1.6.2"
     },
     "jest": {
@@ -89,7 +91,7 @@
         "testRegex": "(/__tests__/.*|(\\.|/)(Spec))\\.jsx?$"
     },
     "dependencies": {
-        "@babel/eslint-parser": "^7.16.0"
+        "@babel/eslint-parser": "^7.16.5"
     },
     "browserify": {
         "transform": [
@@ -100,5 +102,11 @@
         "commitizen": {
             "path": "node_modules/cz-conventional-changelog"
         }
-    }
+    },
+    "size-limit": [
+        {
+            "path": "./es/index.js",
+            "limit": "70 B"
+        }
+    ]
 }
