@@ -1,6 +1,6 @@
 {
     "name": "easy-uid",
-    "version": "1.0.2",
+    "version": "2.0.0",
     "description": "A tiny only 70 bytes random URL-friendly uid generator",
     "main": "cjs/index.js",
     "module": "es/index.js",
